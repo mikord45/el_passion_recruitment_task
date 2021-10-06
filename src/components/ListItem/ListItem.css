@@ -1,0 +1,5 @@
+.listItem__text{
+    width: 100%;
+    color: var(--black-color);
+    font-size: var(--bigger-font-size);
+}

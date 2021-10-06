@@ -1,31 +1,40 @@
+@import url("../../css/variables.css");
+
 .controlButton{
     width: 100%;
     height: 50px;
+    padding: 0px 15px;
+    box-sizing: border-box;
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 
 .controlButton__left{
-    padding-left: 15px;
-    /* flex: 4; */
+    flex: 5 5 auto;
     display: flex;
     align-items: center;
+    justify-items: flex-start;
+    gap: 9px;
 }
 
 .controlButton__text{
-    flex: 1;
-    color: #fff;
-    font-size: 14px;
-    font-family: Roboto;
+    color: var(--white-color);
+    font-size: var(--standard-font-size);
+    font-family: var(--font-roboto);
 }
 
 .controlButton__img{
-    flex: 2;
     width: 16px;
     height: 16px;
 }
 
 .controlButton__right{
-    flex: 1;
+    flex: 1 1 auto;
+    align-items: center;
+}
+
+.controlButton__number{
+    text-align: end;
+    color: var(--grey-color);
+    font-size: var(--standard-font-size);
+    font-family: var(--font-roboto);
 }

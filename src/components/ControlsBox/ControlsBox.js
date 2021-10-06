@@ -9,11 +9,9 @@ function ControlsBox({data}) {
 
 	return (
 		<div className="controlBox">
-			{data.map((elem, i)=>{
-				return(
-					<ControlButton text={elem.name} imgUrl={elem.imgUrl} key={i}/>
-				);
-			})}
+			{data.map((elem, i)=>(
+				<ControlButton text={elem.name} imgUrl={elem.imgUrl} number={10} key={i}/>
+			))}
 		</div>
 	);
 }
