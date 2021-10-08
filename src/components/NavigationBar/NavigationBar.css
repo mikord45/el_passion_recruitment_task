@@ -1,21 +1,21 @@
 @import url("../../css/variables.css");
 
 .navigationBar{
+    display: flex;
     width: 100%;
     height: 40px;
-    background-color: var(--dark-color);
-    display: flex;
     box-sizing: border-box;
+    background-color: var(--dark-color);
 }
 
 .navigationBar__navigationButtonsBox{
-    max-width: 65px;
-    box-sizing: border-box;
-    padding-left: 15px;
     flex: 20;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 65px;
+    padding-left: 15px;
+    box-sizing: border-box;
 }
 
 .navigationBar__rightDiv{

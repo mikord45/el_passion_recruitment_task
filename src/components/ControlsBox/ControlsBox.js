@@ -10,7 +10,7 @@ function ControlsBox({data}) {
 	return (
 		<div className="controlBox">
 			{data.map((elem, i)=>(
-				<ControlButton text={elem.name} imgUrl={elem.imgUrl} number={10} key={i}/>
+				<ControlButton text={elem.name} imgUrl={elem.imgUrl} number={12} key={i}/>
 			))}
 		</div>
 	);

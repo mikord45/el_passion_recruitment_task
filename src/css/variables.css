@@ -1,12 +1,13 @@
 :root {
     --white-color:#fff;
-    --grey-color: #8b8a96;
-    --grey-color-2: #8a8995;
+    --grey-color: #8a8995;
+    --grey-color-border: #e0e0e0;
     --grey-color-background: #f6f6f6;
     --dark-color: #101022;
     --dark-color-with-opacity: rgba(16, 16, 34, 0.9);
     --black-color: #080606;
     --font-roboto: Roboto;
+    --font-proximaNowa: ProximaNova;
     --blur: blur(5px); 
     --smaller-font-size: 12px;
     --standard-font-size: 14px;

@@ -1,5 +1,5 @@
 .mainBox{
-    border-radius: 6px;
     display: flex;
+    border-radius: 6px;
     overflow: hidden;
 }

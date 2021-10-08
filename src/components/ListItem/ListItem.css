@@ -1,5 +1,31 @@
+@import url("../../css/variables.css");
+
+.listItem{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 5px;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    border: 1px solid var(--grey-color-border);
+    border-radius: 5px;
+    background-color: var(--white-color);
+}
+
 .listItem__text{
-    width: 100%;
+    flex: 20;
+    margin: 0px;
     color: var(--black-color);
     font-size: var(--bigger-font-size);
+    font-family: var(--font-roboto);
+}
+
+.listItem__extraElementsBox{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.listItem__extraElement{
+    margin-left: 3px;
 }

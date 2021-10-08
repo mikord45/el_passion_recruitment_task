@@ -1,11 +1,11 @@
 @import url("../../css/variables.css");
 
 .controlButton{
+    display: flex;
     width: 100%;
     height: 50px;
     padding: 0px 15px;
     box-sizing: border-box;
-    display: flex;
 }
 
 .controlButton__left{
@@ -17,6 +17,7 @@
 }
 
 .controlButton__text{
+    margin: 0px;
     color: var(--white-color);
     font-size: var(--standard-font-size);
     font-family: var(--font-roboto);
@@ -29,7 +30,9 @@
 
 .controlButton__right{
     flex: 1 1 auto;
+    display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .controlButton__number{

@@ -5,15 +5,14 @@ import ListItem from "../ListItem/ListItem";
 
 import "./OrganizedList.css";
 
-function OrganizedList({data}) {
-	console.log(data);
+function OrganizedList({data, extraElements}) {
 	return (
 		<div className="organizedList">
 			{data.map((elem, i)=>(
 				<div className="organizedList__group" key={i}>
-					<p>{elem.date}</p>
-					{elem.issues.map((el, j)=>(
-						<ListItem text={el.name}  key={j}/>
+					<p className="organizedList__text">{elem.date}</p>
+					{elem.items.map((el, j)=>(
+						<ListItem id={el.id} text={el.name} extraElements={extraElements} key={j}/>
 					))}
 				</div>
 			))}
@@ -22,7 +21,12 @@ function OrganizedList({data}) {
 }
 
 OrganizedList.propTypes = {
-	data: PropTypes.array
+	data: PropTypes.array,
+	extraElements: PropTypes.array
+};
+
+OrganizedList.defaultProps = {
+	extraElements: []
 };
 
 export default OrganizedList;

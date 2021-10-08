@@ -3,4 +3,11 @@
 .contentField{
     flex: 10;
     background-color: var(--grey-color-background);
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+.contentField::-webkit-scrollbar{
+    display: none;
 }
