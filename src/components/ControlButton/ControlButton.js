@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
+
+import firstLetterToLowercase from "../../utils/firstLetterToLowercase";
 
 import ControlIconsObj from "../../assets/iconsExport";
 
 import "./ControlButton.css";
 
-function ControlButton({text, imgUrl, number}) {
+function ControlButton({text, imgUrl, number, selected, clickHandler}) {
+	const [hoverActive, setHoverActive] = useState(false);
+	console.log(hoverActive);
 	return (
-		<div className="controlButton">
+		<div className={`controlButton ${firstLetterToLowercase(text) === selected ? "controlButton controlButton--selected": ""} ${hoverActive? "controlButton--hover" : ""}`} onClick={()=>{clickHandler(text);}} onMouseEnter={()=>{setHoverActive(true);}} onMouseLeave={()=>{setHoverActive(false);}}>
 			<div className="controlButton__left">
 				<img className="controlButton__img" src={ControlIconsObj[imgUrl]}/>
 				<p className="controlButton__text">{text}</p>
@@ -22,7 +26,9 @@ function ControlButton({text, imgUrl, number}) {
 ControlButton.propTypes = {
 	text: PropTypes.string.isRequired,
 	imgUrl: PropTypes.string.isRequired,
-	number: PropTypes.number
+	number: PropTypes.number,
+	selected: PropTypes.bool.isRequired,
+	clickHandler: PropTypes.func.isRequired
 };
 
 ControlButton.defaultProps = {

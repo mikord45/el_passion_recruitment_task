@@ -5,13 +5,13 @@ import ControlButton from "../ControlButton/ControlButton";
 
 import "./ControlsBox.css";
 
-function ControlsBox({data}) {
+function ControlsBox({data, selected, clickHandler}) {
 
 	return (
 		<div className="controlBox">
 			{data ? 
 				data.map((elem, i)=>(
-					<ControlButton text={elem.name} imgUrl={elem.imgUrl} number={elem.number} key={i}/>
+					<ControlButton text={elem.name} imgUrl={elem.imgUrl} number={elem.number} selected={selected} key={i} clickHandler={clickHandler}/>
 				)):
 				null}
 		</div>
@@ -19,7 +19,9 @@ function ControlsBox({data}) {
 }
 
 ControlsBox.propTypes = {
-	data: PropTypes.array
+	data: PropTypes.array.isRequired,
+	selected: PropTypes.string,
+	clickHandler: PropTypes.func.isRequired
 };
 
 export default ControlsBox;

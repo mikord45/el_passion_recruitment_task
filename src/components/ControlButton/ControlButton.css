@@ -6,6 +6,15 @@
     height: 50px;
     padding: 0px 15px;
     box-sizing: border-box;
+    cursor:pointer;
+}
+
+.controlButton--selected{
+    background-color: var(--dark-color-selected);
+}
+
+.controlButton--hover{
+    background-color: var(--dark-color-selected);
 }
 
 .controlButton__left{
