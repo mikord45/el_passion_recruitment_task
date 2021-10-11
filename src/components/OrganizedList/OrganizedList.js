@@ -8,14 +8,17 @@ import "./OrganizedList.css";
 function OrganizedList({data, extraElements}) {
 	return (
 		<div className="organizedList">
-			{data.map((elem, i)=>(
-				<div className="organizedList__group" key={i}>
-					<p className="organizedList__text">{elem.date}</p>
-					{elem.items.map((el, j)=>(
-						<ListItem id={el.id} text={el.name} extraElements={extraElements} key={j}/>
-					))}
-				</div>
-			))}
+			{data?
+				data.map((elem, i)=>(
+					<div className="organizedList__group" key={i}>
+						<p className="organizedList__text">{elem.date}</p>
+						{elem.items.map((el, j)=>(
+							<ListItem id={el.id} text={el.name} extraElements={extraElements} key={j}/>
+						))}
+					</div>
+				)): null
+			}
+			
 		</div>
 	);
 }

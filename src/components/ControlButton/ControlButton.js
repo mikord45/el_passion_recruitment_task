@@ -22,7 +22,11 @@ function ControlButton({text, imgUrl, number}) {
 ControlButton.propTypes = {
 	text: PropTypes.string.isRequired,
 	imgUrl: PropTypes.string.isRequired,
-	number: PropTypes.number.isRequired
+	number: PropTypes.number
+};
+
+ControlButton.defaultProps = {
+	number: 0
 };
 
 export default ControlButton;
