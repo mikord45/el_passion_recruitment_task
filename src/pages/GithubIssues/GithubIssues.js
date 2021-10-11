@@ -29,7 +29,7 @@ function githubIssues({getGithubIssues, githubIssues}) {
 	}, []);
 
 	useEffect(()=>{
-		setSidebarData([{name: "All", imgUrl: "IconGithub", number: githubIssues?.all.number}, {name: "Open", imgUrl: "IconOpenIssue", number: githubIssues?.open.number}, {name: "Closed", imgUrl: "IconClosedIssue", number: githubIssues?.closed.number}]);	
+		setSidebarData([{name: "All", imgUrl: "IconGithub", number: githubIssues.data?.all.number}, {name: "Open", imgUrl: "IconOpenIssue", number: githubIssues.data?.open.number}, {name: "Closed", imgUrl: "IconClosedIssue", number: githubIssues.data?.closed.number}]);	
 	}, [githubIssues]);
 
 	return (
@@ -39,14 +39,14 @@ function githubIssues({getGithubIssues, githubIssues}) {
 				<ControlBox data={sidebarData} selected={selectedType} clickHandler={selectType}/>
 			</Sidebar>
 			<ContentField>
-				<OrganizedList data={githubIssues?.[selectedType].data} extraElement={{icon: "IconStar", click: (id)=>{console.log(id);}}} />
+				<OrganizedList data={githubIssues.data?.[selectedType].data} extraElement={{icon: "IconStar", click: (id)=>{console.log(id);}}} />
 			</ContentField>
 		</MainBox>
 	);
 }
 
 const mapStateToProps = state => ({
-	githubIssues: state.github.githubIssues.data
+	githubIssues: state.github.githubIssues
 });
 
 const mapDispatchToProps = dispatch => ({
