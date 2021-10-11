@@ -11,7 +11,7 @@ import NavigationBar from "../../components/NavigationBar/NavigationBar";
 import ControlBox from "../../components/ControlsBox/ControlsBox";
 import ContentField from "../../components/ContentField/ContentField";
 import OrganizedList from "../../components/OrganizedList/OrganizedList";
-import StarIcon from "../../assets/icon-star.svg";
+// import IconStar from "../../assets/icon-star.svg";
 
 function githubIssues({getGithubIssues, githubIssues}) {
 
@@ -39,7 +39,7 @@ function githubIssues({getGithubIssues, githubIssues}) {
 				<ControlBox data={sidebarData} selected={selectedType} clickHandler={selectType}/>
 			</Sidebar>
 			<ContentField>
-				<OrganizedList data={githubIssues?.[selectedType].data} extraElements={[{src: StarIcon, click: (id)=>{console.log(id);}}]} />
+				<OrganizedList data={githubIssues?.[selectedType].data} extraElement={{icon: "IconStar", click: (id)=>{console.log(id);}}} />
 			</ContentField>
 		</MainBox>
 	);

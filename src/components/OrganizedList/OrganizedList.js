@@ -5,7 +5,7 @@ import ListItem from "../ListItem/ListItem";
 
 import "./OrganizedList.css";
 
-function OrganizedList({data, extraElements}) {
+function OrganizedList({data, extraElement}) {
 	return (
 		<div className="organizedList">
 			{data?
@@ -13,7 +13,7 @@ function OrganizedList({data, extraElements}) {
 					<div className="organizedList__group" key={i}>
 						<p className="organizedList__text">{elem.date}</p>
 						{elem.items.map((el, j)=>(
-							<ListItem id={el.id} text={el.name} extraElements={extraElements} key={j}/>
+							<ListItem id={el.id} text={el.name} extraElement={extraElement} key={j}/>
 						))}
 					</div>
 				)): null
@@ -25,11 +25,11 @@ function OrganizedList({data, extraElements}) {
 
 OrganizedList.propTypes = {
 	data: PropTypes.array,
-	extraElements: PropTypes.array
+	extraElement: PropTypes.object
 };
 
 OrganizedList.defaultProps = {
-	extraElements: []
+	extraElement: []
 };
 
 export default OrganizedList;
