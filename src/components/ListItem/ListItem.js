@@ -1,24 +1,30 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
 import React, {useEffect, useState} from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import { setGithubIssuesImportance } from "../../actions/github.actions";
+
 import "./ListItem.css";
-function ListItem({id, text, extraElement}) {
-	const [Icons, setIcons] = useState(null);
+function ListItem({id, text, extraElement, extraElementSpecialStatus, githubIssues, setGithubIssuesImportance}) {
+	const [Icon, setIcon] = useState(null);
 
 	useEffect(async()=>{
 		await import(`assets/${extraElement.icon}`).then(component => {
-			setIcons(component.default);
+			setIcon(component.default);
 		});
 	},[]);
 
 	return (
 		<div className="listItem">
 			<p className="listItem__text">{text}</p>
-			<div className="listItem__extraElementsBox" onClick={()=>{console.log(id);}}>
-				{Icons ? React.cloneElement(Icons, {className: "listItem__extraElement", stroke: "#21233d"})  : null}
-				{/* <IconStar className="listItem__extraElement"  fill="red" stroke="green" onClick={()=>{elem.click(id);}} key={i}/> */}
+			<div className="listItem__extraElementsBox" onClick={()=>{
+				const currentStateOfFetching = githubIssues ? githubIssues.isFetching : false;
+
+				setGithubIssuesImportance(id, currentStateOfFetching);
+			}}>
+				{Icon ? React.cloneElement(Icon, {className: "listItem__extraElement", stroke: "#21233d", fill: extraElementSpecialStatus ? "#21233d" : "#fff"})  : null}
 			</div>
 		</div>
 	);
@@ -27,11 +33,23 @@ function ListItem({id, text, extraElement}) {
 ListItem.propTypes = {
 	id: PropTypes.number.isRequired,
 	text: PropTypes.string.isRequired,
-	extraElement: PropTypes.object
+	extraElement: PropTypes.object,
+	extraElementSpecialStatus: PropTypes.bool,
+	githubIssues: PropTypes.object,
+	setGithubIssuesImportance: PropTypes.func.isRequired
 };
 
 ListItem.defaultProps = {
-	extraElement: []
+	extraElement: {},
+	extraElementSpecialStatus: false
 };
 
-export default ListItem;
+const mapStateToProps = state => ({
+	githubIssues: state.github.githubIssues
+});
+
+const mapDispatchToProps = dispatch => ({
+	setGithubIssuesImportance: (id, currentStateOfFetching) => setGithubIssuesImportance(id, dispatch, currentStateOfFetching),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListItem);

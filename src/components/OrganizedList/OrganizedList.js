@@ -13,7 +13,7 @@ function OrganizedList({data, extraElement}) {
 					<div className="organizedList__group" key={i}>
 						<p className="organizedList__text">{elem.date}</p>
 						{elem.items.map((el, j)=>(
-							<ListItem id={el.id} text={el.name} extraElement={extraElement} key={j}/>
+							<ListItem id={el.id} text={el.name} extraElement={extraElement} extraElementSpecialStatus={el.important} key={j}/>
 						))}
 					</div>
 				)): null
@@ -29,7 +29,7 @@ OrganizedList.propTypes = {
 };
 
 OrganizedList.defaultProps = {
-	extraElement: []
+	extraElement: {}
 };
 
 export default OrganizedList;

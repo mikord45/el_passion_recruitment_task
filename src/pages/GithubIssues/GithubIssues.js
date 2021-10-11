@@ -11,7 +11,6 @@ import NavigationBar from "../../components/NavigationBar/NavigationBar";
 import ControlBox from "../../components/ControlsBox/ControlsBox";
 import ContentField from "../../components/ContentField/ContentField";
 import OrganizedList from "../../components/OrganizedList/OrganizedList";
-// import IconStar from "../../assets/icon-star.svg";
 
 function githubIssues({getGithubIssues, githubIssues}) {
 

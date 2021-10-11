@@ -9,4 +9,6 @@ const returnActions = type => {
 	return Object.keys(generatedActions).map(action => generatedActions[action]);
 };
 
-export const GITHUB_ISSUES = returnActions("GITHUB_ISSUES");
+export const GET_GITHUB_ISSUES = returnActions("GET_GITHUB_ISSUES");
+
+export const SET_GITHUB_ISSUES_IMPORTANCE = returnActions("SET_GITHUB_ISSUES_IMPORTANCE");
