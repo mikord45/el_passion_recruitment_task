@@ -9,7 +9,7 @@ import "./ControlButton.css";
 
 function ControlButton({text, imgUrl, number, selected, clickHandler}) {
 	const [hoverActive, setHoverActive] = useState(false);
-	console.log(hoverActive);
+	
 	return (
 		<div className={`controlButton ${firstLetterToLowercase(text) === selected ? "controlButton controlButton--selected": ""} ${hoverActive? "controlButton--hover" : ""}`} onClick={()=>{clickHandler(text);}} onMouseEnter={()=>{setHoverActive(true);}} onMouseLeave={()=>{setHoverActive(false);}}>
 			<div className="controlButton__left">
@@ -27,7 +27,7 @@ ControlButton.propTypes = {
 	text: PropTypes.string.isRequired,
 	imgUrl: PropTypes.string.isRequired,
 	number: PropTypes.number,
-	selected: PropTypes.bool.isRequired,
+	selected: PropTypes.string.isRequired,
 	clickHandler: PropTypes.func.isRequired
 };
 
